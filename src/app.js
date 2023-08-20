@@ -6,14 +6,14 @@ const compression = require("compression")
 
 const app = express()
 
-//  init middle
+//  init middle         
 app.use(morgan("dev"))
 app.use(helmet())
 app.use(compression())
 
 
 // init db
-
+require('./dbs/init.mongodb')
 //  init routes
 
 // init handel error
