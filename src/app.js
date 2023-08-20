@@ -26,6 +26,6 @@ checkOverload()
 app.get('/', (req,res,next)=>{
 
     const strCompress = 'Hello, world'
-    return res.status(200).json({messange: "oke", metadata: strCompress.repeat(1000000)})
+    return res.status(200).json({messange: "oke"})
 })
 module.exports = app

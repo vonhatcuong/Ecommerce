@@ -1,8 +1,8 @@
 "use strict";
 
 const mongoose = require("mongoose");
-const connectString =
-  "mongodb+srv://ecommecne:Nhatcuong221192@cluster0.kwfgibi.mongodb.net/?retryWrites=true&w=majority";
+const {config} =require('../configs/config.mongodb')
+const connectString = process.env.DEV_DB_HOST || process.env.PRO_DB_HOST;
 const { countConnect } = require("../helpers/check.connect");
 class Database {
   constructor() {
@@ -16,7 +16,7 @@ class Database {
     mongoose
       .connect(connectString)
       .then((_) => {
-        console.log("Connect MongoDB success PRO"), countConnect();
+        console.log("Connect MongoDB success"), countConnect();
       })
       .catch((err) => console.log("Error Connect!"));
   }
